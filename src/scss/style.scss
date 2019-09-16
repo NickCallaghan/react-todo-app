@@ -1,13 +1,86 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url("https://fonts.googleapis.com/css?family=Roboto:300,700,600&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap");
+
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+body {
+  font-family: "Roboto", sans-serif;
+  line-height: 1.2;
+  font-size: 1.3rem;
+  min-width: 400px;
+  margin: 0;
+  padding: 0;
+}
+
+.todo-container {
+  background-color: whitesmoke;
+  .main-heading {
+    font-family: "Permanent Marker", cursive;
+    margin-bottom: 0.5em;
+  }
+  .sub-heading {
+    font-size: 1em;
+    margin: 0 0 25px 0;
+  }
+}
+
+.todo-container {
+  margin: 50px auto;
+  padding: 30px 0px;
+  width: 85%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  border: 1px solid lightgrey;
+}
+
+.add-todo {
+  display: flex;
+  padding: 20px;
+  background-color: purple;
+  box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.31);
+  margin: 0;
+
+  input[type="text"] {
+    padding: 0.1em 0.5em;
+    font-size: 1em;
+    flex: 1 1 90%;
+  }
+  input[type="submit"] {
+    border: none;
+    font-size: 1.5em;
+    flex: 1 1 10%;
+  }
+}
+
+.todo-list {
+  .todo-item {
+    margin: 20px 0;
+  }
+  input[type="checkbox"] {
+    display: none;
+  }
+  .checked::before {
+    content: "\1F63B";
+    height: 10px;
+    width: 10px;
+    font-size: 1.5em;
+    color: green;
+  }
+  .not-checked::before {
+    content: "\1F63E";
+    height: 10px;
+    width: 10px;
+    font-size: 1.5em;
+    color: red;
+  }
+  .todo-item label {
+    margin-left: 15px;
+  }
+  .todo-item label:hover {
+    font-weight: 700;
+  }
 }
