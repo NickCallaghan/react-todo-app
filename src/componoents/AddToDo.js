@@ -5,16 +5,20 @@ class AddToDo extends React.Component {
 
   handleAddToDo = event => {
     event.preventDefault();
-    const key = Date.now();
-    const newToDo = {
-      index: key,
-      key: key,
-      task: this.newTodoRef.current.value,
-      complete: false
-    };
+    // Add a todo if not empty
+    if (this.newTodoRef.current.value !== ""){
+      const key = Date.now();
+      const newToDo = {
+        index: key,
+        key: key,
+        task: this.newTodoRef.current.value,
+        complete: false
+      };
+    
     this.props.updateToDo(key, newToDo);
     event.currentTarget.reset();
-  };
+    }
+  }
 
   render() {
     return (

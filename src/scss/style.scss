@@ -93,6 +93,9 @@ body {
   .todo-item label:hover {
     font-weight: 700;
   }
+  .todo-item label:active {
+    font-weight: 400;
+  }
   .remove-todo {
     color: red;
     font-weight: 900;
