@@ -2,7 +2,6 @@
   "name": "todoapp",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://github.com/NickCallaghan/react-todo-app/",
   "dependencies": {
     "gh-pages": "^2.1.1",
     "react": "^16.9.0",
