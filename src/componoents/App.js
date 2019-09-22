@@ -25,7 +25,9 @@ class App extends React.Component {
         task: "Play with the cat",
         complete: false
       }
-    }
+      
+    },
+    filter: "all"
   };
 
   updateToDo = (key, updateToDo) => {
@@ -39,6 +41,11 @@ class App extends React.Component {
     todos[key] = null;
     this.setState({ todos });
   };
+  updateFilter = (newFilter) => {
+    let updatedFilter = this.state.filter
+    updatedFilter = newFilter;
+    this.setState({filter: updatedFilter});
+  }
 
   render() {
     return (
@@ -48,7 +55,8 @@ class App extends React.Component {
 
         <AddToDo updateToDo={this.updateToDo} />
 
-        <FilterBar />
+        <FilterBar filter={this.state.filter} updateFilter={this.updateFilter} />
+
         <ToDoList
           todos={this.state.todos}
           updateToDo={this.updateToDo}
