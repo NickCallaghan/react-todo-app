@@ -2,6 +2,7 @@ import React from "react";
 import AddToDo from "./AddToDo";
 import ToDoList from "./ToDoList";
 import Stats from "./Stats";
+import FilterBar from "./FilterBar";
 
 class App extends React.Component {
   state = {
@@ -47,6 +48,7 @@ class App extends React.Component {
 
         <AddToDo updateToDo={this.updateToDo} />
 
+        <FilterBar />
         <ToDoList
           todos={this.state.todos}
           updateToDo={this.updateToDo}

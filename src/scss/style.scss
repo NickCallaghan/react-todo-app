@@ -57,6 +57,24 @@ body {
   }
 }
 
+.filter-list {
+  margin-top: 2em;
+  list-style-type: none;
+  display: flex;
+  padding: 0;
+  font-size: 0.7em;
+  text-transform: uppercase;
+  justify-content: center;
+  opacity: 0.5;
+  li {
+    padding: 0 10px;
+  }
+  li:hover {
+    color: #3366ff;
+    font-weight: bold;
+  }
+}
+
 .todo-list {
   display: flex;
   flex-direction: column;
