@@ -11,7 +11,7 @@ class App extends React.Component {
         index: 1,
         key: 1,
         task: "Feed the cat",
-        complete: false
+        complete: true
       },
       2: {
         index: 2,
@@ -55,9 +55,10 @@ class App extends React.Component {
 
         <AddToDo updateToDo={this.updateToDo} />
 
-        <FilterBar filter={this.state.filter} updateFilter={this.updateFilter} />
+        <FilterBar updateFilter={this.updateFilter} />
 
-        <ToDoList
+        <ToDoList 
+          filter={this.state.filter}
           todos={this.state.todos}
           updateToDo={this.updateToDo}
           deleteToDo={this.deleteToDo}
