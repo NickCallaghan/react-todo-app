@@ -14,6 +14,10 @@ body {
   padding: 0;
 }
 
+h1.main-heading, p.sub-heading{
+  text-align: center;
+}
+
 .todo-container {
   background-color: whitesmoke;
   .main-heading {
@@ -33,7 +37,6 @@ body {
   max-width: 600px;
   display: flex;
   flex-direction: column;
-  text-align: center;
   border: 1px solid lightgrey;
   box-shadow: 0px 10px 20px 0px rgba(0, 0, 0, 0.31);
 }
@@ -58,7 +61,7 @@ body {
 }
 
 .filter-list {
-  margin-top: 2em;
+  margin: 2em auto;
   list-style-type: none;
   display: flex;
   padding: 0;
@@ -70,6 +73,7 @@ body {
   li {
     padding: 0 10px;
     opacity: 0.5;
+    cursor: pointer;
   }
   li.active {
     color: #1A73E8;
@@ -79,36 +83,39 @@ body {
  
 }
 
-.todo-list::before{
+.todo-list::before, .todo-list::after{
   content: "";
-  width: 80%;
+  width: 75%;
   height:1px;
+  margin: 0 auto;
   background-color: lightgrey;
 }
 
 .todo-list {
   display: flex;
   flex-direction: column;
-  align-items: center;
-
+  padding: 0.1em 0;
+  
   .todo-item {
-    margin: 20px 0;
+    margin-left: 30%;
+    margin-top: 20px;
+    margin-bottom: 10px;
   }
   input[type="checkbox"] {
     display: none;
   }
-  .checked::before {
-    content: "\1F63B";
+  .checked::before, .not-checked::before {
     height: 10px;
     width: 10px;
+    margin: 0.2em 0.3em ;
     font-size: 1.5em;
+  }
+  .checked::before{
+    content: "\1F63B";
     color: green;
   }
   .not-checked::before {
     content: "\1F63E";
-    height: 10px;
-    width: 10px;
-    font-size: 1.5em;
     color: red;
   }
   .checked label {
@@ -137,15 +144,8 @@ body {
   }
 }
 
-.todo-list::after {
-  content: "";
-  width: 80%;
-  height: 1px;
-  background-color: lightgray;
-  margin: 1em 0 0.5em 0;
-}
-
 .stats {
   display: flex;
   justify-content: space-around;
+  text-align: center;
 }
