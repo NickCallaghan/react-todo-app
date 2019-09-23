@@ -2,6 +2,7 @@ import React from "react";
 import AddToDo from "./AddToDo";
 import ToDoList from "./ToDoList";
 import Stats from "./Stats";
+import FilterBar from "./FilterBar";
 
 class App extends React.Component {
   state = {
@@ -10,7 +11,7 @@ class App extends React.Component {
         index: 1,
         key: 1,
         task: "Feed the cat",
-        complete: false
+        complete: true
       },
       2: {
         index: 2,
@@ -24,7 +25,9 @@ class App extends React.Component {
         task: "Play with the cat",
         complete: false
       }
-    }
+      
+    },
+    filter: "all"
   };
 
   updateToDo = (key, updateToDo) => {
@@ -38,6 +41,11 @@ class App extends React.Component {
     todos[key] = null;
     this.setState({ todos });
   };
+  updateFilter = (newFilter) => {
+    let updatedFilter = this.state.filter
+    updatedFilter = newFilter;
+    this.setState({filter: updatedFilter});
+  }
 
   render() {
     return (
@@ -47,7 +55,10 @@ class App extends React.Component {
 
         <AddToDo updateToDo={this.updateToDo} />
 
-        <ToDoList
+        <FilterBar updateFilter={this.updateFilter} />
+
+        <ToDoList 
+          filter={this.state.filter}
           todos={this.state.todos}
           updateToDo={this.updateToDo}
           deleteToDo={this.deleteToDo}
