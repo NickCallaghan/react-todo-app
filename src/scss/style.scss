@@ -14,7 +14,8 @@ body {
   padding: 0;
 }
 
-h1.main-heading, p.sub-heading{
+h1.main-heading,
+p.sub-heading {
   text-align: center;
 }
 
@@ -26,13 +27,13 @@ h1.main-heading, p.sub-heading{
   }
   .sub-heading {
     font-size: 1em;
-    margin: 0 0 25px 0;
+    margin: 0 0 1.7em 0;
   }
 }
 
 .todo-container {
   margin: 50px auto;
-  padding: 30px 0px;
+  padding: 15px 0px;
   width: 85%;
   max-width: 600px;
   display: flex;
@@ -66,27 +67,27 @@ h1.main-heading, p.sub-heading{
   display: flex;
   padding: 0;
   font-size: 0.7em;
-  font-weight:600;
+  font-weight: 600;
   text-transform: uppercase;
   justify-content: center;
-  
+
   li {
     padding: 0 10px;
     opacity: 0.5;
     cursor: pointer;
   }
   li.active {
-    color: #1A73E8;
+    color: #1a73e8;
     font-weight: bold;
     opacity: 1;
   }
- 
 }
 
-.todo-list::before, .todo-list::after{
+.todo-list::before,
+.todo-list::after {
   content: "";
   width: 75%;
-  height:1px;
+  height: 1px;
   margin: 0 auto;
   background-color: lightgrey;
 }
@@ -95,22 +96,26 @@ h1.main-heading, p.sub-heading{
   display: flex;
   flex-direction: column;
   padding: 0.1em 0;
-  
+
   .todo-item {
     margin-left: 30%;
     margin-top: 20px;
-    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    text-align: center;
   }
   input[type="checkbox"] {
     display: none;
   }
-  .checked::before, .not-checked::before {
+  .checked::before,
+  .not-checked::before {
     height: 10px;
     width: 10px;
-    margin: 1em 0.3em ;
+    margin: 0 0.7em 1.4em;
+    padding-top: 0.2em;
     font-size: 1.5em;
   }
-  .checked::before{
+  .checked::before {
     content: "\1F63B";
     color: green;
   }
@@ -124,7 +129,7 @@ h1.main-heading, p.sub-heading{
   }
   .todo-item label {
     margin-left: 15px;
-    padding-bottom: 0.6em;
+    padding-bottom: 0.8em;
     text-transform: uppercase;
   }
   .todo-item label:hover {
