@@ -25,7 +25,6 @@ class App extends React.Component {
         task: "Play with the cat",
         complete: false
       }
-      
     },
     filter: "all"
   };
@@ -41,23 +40,23 @@ class App extends React.Component {
     todos[key] = null;
     this.setState({ todos });
   };
-  updateFilter = (newFilter) => {
-    let updatedFilter = this.state.filter
+  updateFilter = newFilter => {
+    let updatedFilter = this.state.filter;
     updatedFilter = newFilter;
-    this.setState({filter: updatedFilter});
-  }
+    this.setState({ filter: updatedFilter });
+  };
 
   render() {
     return (
       <div className="todo-container">
         <h1 className="main-heading">Happy Cat To Do List</h1>
-        <p className="sub-heading">Complete a to do to make the cat smile</p>
+        <p className="sub-heading">Happy cats mean completed todos</p>
 
         <AddToDo updateToDo={this.updateToDo} />
 
         <FilterBar updateFilter={this.updateFilter} />
 
-        <ToDoList 
+        <ToDoList
           filter={this.state.filter}
           todos={this.state.todos}
           updateToDo={this.updateToDo}

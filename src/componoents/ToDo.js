@@ -34,13 +34,13 @@ class ToDo extends React.Component {
         >
           {task}
         </label>
-        <span
+        {/* <span
           id={`${index}`}
           className="remove-todo"
           onClick={this.handleDeleteToDo}
         >
           X
-        </span>
+        </span> */}
       </div>
     );
   }
