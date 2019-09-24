@@ -1,6 +1,23 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto:300,700,600&display=swap");
 @import url("https://fonts.googleapis.com/css?family=Permanent+Marker&display=swap");
 
+$breakpoints: (
+  phone: 640px,
+  tablet: 768px,
+  desktop: 1024px
+) !default;
+
+@mixin tablet {
+  @media only screen and (min-width: 480px) {
+    @content;
+  }
+}
+@mixin desktop {
+  @media only screen and (min-width: 1024px) {
+    @content;
+  }
+}
+
 * {
   box-sizing: border-box;
 }
@@ -8,8 +25,8 @@
 body {
   font-family: "Roboto", sans-serif;
   line-height: 1.2;
-  font-size: 1.3rem;
-  min-width: 400px;
+  font-size: 1rem;
+  min-width: 320px;
   margin: 0;
   padding: 0;
 }
@@ -17,6 +34,13 @@ body {
 h1.main-heading,
 p.sub-heading {
   text-align: center;
+}
+
+h1.main-heading {
+  font-size: 1.8em;
+  @include tablet {
+    font-size: 3em;
+  }
 }
 
 .todo-container {
@@ -28,13 +52,16 @@ p.sub-heading {
   .sub-heading {
     font-size: 1em;
     margin: 0 0 1.7em 0;
+    @include tablet {
+      font-size: 1.5em;
+    }
   }
 }
 
 .todo-container {
   margin: 50px auto;
   padding: 15px 0px;
-  width: 85%;
+  width: 90%;
   max-width: 600px;
   display: flex;
   flex-direction: column;
@@ -50,14 +77,19 @@ p.sub-heading {
   margin: 0;
 
   input[type="text"] {
-    padding: 0.1em 0.5em;
+    padding: 0.6em 0.5em;
     font-size: 1em;
     flex: 1 1 90%;
   }
-  input[type="submit"] {
+  button {
     border: none;
     font-size: 1.5em;
     flex: 1 1 10%;
+    -webkit-appearance: none;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
   }
 }
 
@@ -98,11 +130,15 @@ p.sub-heading {
   padding: 0.1em 0;
 
   .todo-item {
-    margin-left: 30%;
+    margin-left: 20%;
     margin-top: 20px;
     display: flex;
     align-items: center;
     text-align: center;
+    @include tablet {
+      margin-left: 30%;
+      font-size: 1.2rem;
+    }
   }
   input[type="checkbox"] {
     display: none;
@@ -143,7 +179,10 @@ p.sub-heading {
     font-weight: 900;
     display: inline-block;
     margin-left: 0.5em;
-    opacity: 0;
+    padding-bottom: 0.8em;
+    @include desktop {
+      opacity: 0;
+    }
   }
   .remove-todo:hover {
     opacity: 1;
