@@ -1,71 +1,74 @@
-import React from "react";
-import AddToDo from "./AddToDo";
-import ToDoList from "./ToDoList";
-import Stats from "./Stats";
-import FilterBar from "./FilterBar";
+import React from 'react';
+import AddToDo from './AddToDo';
+import ToDoList from './ToDoList';
+import Stats from './Stats';
+import FilterBar from './FilterBar';
+import { Provider } from './context';
 
 class App extends React.Component {
-  state = {
-    todos: {
-      1: {
-        index: 1,
-        key: 1,
-        task: "Feed the cat",
-        complete: true
-      },
-      2: {
-        index: 2,
-        key: 2,
-        task: "Walk the cat",
-        complete: false
-      },
-      3: {
-        index: 3,
-        key: 3,
-        task: "Play with the cat",
-        complete: false
-      }
-    },
-    filter: "all"
-  };
+	state = {
+		todos: {
+			1: {
+				index: 1,
+				key: 1,
+				task: 'Feed the cat',
+				complete: true,
+			},
+			2: {
+				index: 2,
+				key: 2,
+				task: 'Walk the cat',
+				complete: false,
+			},
+			3: {
+				index: 3,
+				key: 3,
+				task: 'Play with the cat',
+				complete: false,
+			},
+		},
+		filter: 'all',
+	};
 
-  updateToDo = (key, updateToDo) => {
-    let todos = { ...this.state.todos };
-    todos[key] = updateToDo || undefined;
-    this.setState({ todos });
-  };
+	updateToDo = (key, updateToDo) => {
+		let todos = { ...this.state.todos };
+		todos[key] = updateToDo || undefined;
+		this.setState({ todos });
+	};
 
-  deleteToDo = key => {
-    let todos = { ...this.state.todos };
-    todos[key] = null;
-    this.setState({ todos });
-  };
-  updateFilter = newFilter => {
-    let updatedFilter = this.state.filter;
-    updatedFilter = newFilter;
-    this.setState({ filter: updatedFilter });
-  };
+	deleteToDo = key => {
+		let todos = { ...this.state.todos };
+		todos[key] = null;
+		this.setState({ todos });
+	};
+	updateFilter = newFilter => {
+		let updatedFilter = this.state.filter;
+		updatedFilter = newFilter;
+		this.setState({ filter: updatedFilter });
+	};
 
-  render() {
-    return (
-      <div className="todo-container">
-        <h1 className="main-heading">Happy Cat To Do List</h1>
-        <p className="sub-heading">Happy cats mean completed todos</p>
+	render() {
+		return (
+			<Provider value={this.state}>
+				<div className="todo-container">
+					<h1 className="main-heading">Happy Cat To Do List</h1>
+					<p className="sub-heading">Happy cats mean completed todos</p>
 
-        <AddToDo updateToDo={this.updateToDo} />
+					<AddToDo updateToDo={this.updateToDo} />
 
-        <FilterBar updateFilter={this.updateFilter} />
+					<FilterBar updateFilter={this.updateFilter} />
 
-        <ToDoList
-          filter={this.state.filter}
-          todos={this.state.todos}
-          updateToDo={this.updateToDo}
-          deleteToDo={this.deleteToDo}
-        />
-        <Stats todos={this.state.todos} />
-      </div>
-    );
-  }
+					<ToDoList
+						filter={this.state.filter}
+						todos={this.state.todos}
+						updateToDo={this.updateToDo}
+						deleteToDo={this.deleteToDo}
+					/>
+					<Stats todos={this.state.todos} />
+				</div>
+			</Provider>
+		);
+	}
 }
 
 export default App;
