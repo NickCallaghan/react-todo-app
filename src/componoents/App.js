@@ -37,7 +37,7 @@ class App extends React.Component {
 
 	deleteToDo = key => {
 		let todos = { ...this.state.todos };
-		todos[key] = null;
+		delete todos[key];
 		this.setState({ todos });
 	};
 
