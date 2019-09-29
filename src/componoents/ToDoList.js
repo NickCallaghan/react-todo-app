@@ -16,8 +16,7 @@ class ToDoList extends React.Component {
 		return todos;
 	};
 
-	renderTodos = () => {
-		const todos = this.filterTodos(this.props.filter);
+	renderTodos = todos => {
 		return (
 			<div className="todo-list">
 				{todos.map(todo => {
@@ -39,8 +38,8 @@ class ToDoList extends React.Component {
 	};
 
 	render() {
-		let todosLength = Object.keys(this.props.todos).length;
-		return todosLength ? this.renderTodos() : this.renderNoToDos();
+		const todos = this.filterTodos(this.props.filter);
+		return todos.length ? this.renderTodos(todos) : this.renderNoToDos();
 	}
 }
 export default ToDoList;
