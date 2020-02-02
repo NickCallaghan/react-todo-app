@@ -1,4 +1,5 @@
 import React from "react";
+import uuid from "uuid/v4";
 
 class AddToDo extends React.Component {
   newTodoRef = React.createRef();
@@ -7,15 +8,12 @@ class AddToDo extends React.Component {
     event.preventDefault();
     // Add a todo if not empty
     if (this.newTodoRef.current.value !== "") {
-      const key = Date.now();
       const newToDo = {
-        index: key,
-        key: key,
+        id: uuid(),
         task: this.newTodoRef.current.value,
         complete: false
       };
-
-      this.props.updateToDo(key, newToDo);
+      this.props.addToDo(newToDo);
       event.currentTarget.reset();
     }
   };
