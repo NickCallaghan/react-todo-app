@@ -1,7 +1,6 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import AddToDo from "./AddToDo";
-import { uuid } from "uuid/v4";
 
 afterEach(() => {
   cleanup();
