@@ -1,7 +1,7 @@
 import React from "react";
 
 class ToDo extends React.Component {
-  handleToggleTodo = event => {
+  handleToggleTodo = (event) => {
     event.preventDefault();
     const updatedTodo = this.props.todo;
     const id = this.props.todo.id;
@@ -9,11 +9,10 @@ class ToDo extends React.Component {
     this.props.updateToDo(id, updatedTodo);
   };
 
-  handleDeleteToDo = event => {
+  handleDeleteToDo = (event) => {
     event.preventDefault();
     const id = event.currentTarget.id;
     const todo = event.currentTarget;
-    console.log(todo);
     this.props.deleteToDo(id);
   };
 
