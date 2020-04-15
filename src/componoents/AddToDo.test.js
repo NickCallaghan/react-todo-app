@@ -1,6 +1,7 @@
 import React from "react";
 import { render, cleanup, fireEvent } from "@testing-library/react";
 import AddToDo from "./AddToDo";
+import { uuid } from "uuid/v4";
 
 afterEach(() => {
   cleanup();
@@ -24,6 +25,10 @@ test("Submit called with correct values", () => {
   fireEvent.change(input);
   fireEvent.submit(addTodoForm);
   expect(addToDo).toBeCalledWith(
-    expect.objectContaining({ task: "Hello", complete: false })
+    expect.objectContaining({
+      task: "Hello",
+      complete: false,
+      id: expect.any(String),
+    })
   );
 });
