@@ -47,7 +47,7 @@ test("<ToDo /> Toggle todo complete", () => {
     expect.objectContaining({
       id: todo.id,
       task: todo.task,
-      complete: todo.complete,
+      complete: true,
     })
   );
 });
