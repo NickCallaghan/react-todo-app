@@ -20,11 +20,24 @@ class ToDo extends React.Component {
     const { id, task, complete } = this.props.todo;
     return (
       <div className={`todo-item ${complete ? "checked" : "not-checked"}`}>
-        <input type="checkbox" key={`${id}`} id={`${id}`} checked={complete} />
-        <label id={`${id}`} htmlFor={`${id}`} onClick={this.handleToggleTodo}>
+        <input
+          data-testid="todo-checkbox"
+          type="checkbox"
+          key={`${id}`}
+          id={`${id}`}
+          checked={complete}
+          onChange={this.handleToggleTodo}
+        />
+        <label
+          data-testid="todo-label"
+          id={`${id}`}
+          htmlFor={`${id}`}
+          onClick={this.handleToggleTodo}
+        >
           {task}
         </label>
         <span
+          data-testid="todo-remove-button"
           id={`${id}`}
           className="remove-todo"
           onClick={this.handleDeleteToDo}
