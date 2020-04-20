@@ -12,7 +12,6 @@ class ToDo extends React.Component {
   handleDeleteToDo = (event) => {
     event.preventDefault();
     const id = event.currentTarget.id;
-    const todo = event.currentTarget;
     this.props.deleteToDo(id);
   };
 

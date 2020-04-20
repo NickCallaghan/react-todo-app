@@ -7,7 +7,7 @@ import Stats from "../componoents/Stats";
 class Main extends React.Component {
   render() {
     return (
-      <div>
+      <div data-testid="App-main">
         <AddToDo addToDo={this.props.addToDo} />
 
         <FilterBar updateFilter={this.props.updateFilter} />

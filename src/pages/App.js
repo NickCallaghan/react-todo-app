@@ -1,5 +1,5 @@
 import React from "react";
-import Main from "../pages/Main";
+import Main from "./Main";
 import uuid from "uuid/v4";
 
 class App extends React.Component {
@@ -10,30 +10,30 @@ class App extends React.Component {
         {
           id: uuid(),
           task: "Feed the cat",
-          complete: false
+          complete: false,
         },
         {
           id: uuid(),
           task: "Play with the cat",
-          complete: false
+          complete: false,
         },
         {
           id: uuid(),
           task: "Change Kittie Litter",
-          complete: false
-        }
+          complete: false,
+        },
       ],
-      filter: "all"
+      filter: "all",
     };
   }
 
-  addToDo = newTodo => {
+  addToDo = (newTodo) => {
     console.log(newTodo);
-    this.setState(st => ({ todos: [...st.todos, newTodo] }));
+    this.setState((st) => ({ todos: [...st.todos, newTodo] }));
   };
 
   updateToDo = (id, updateToDo) => {
-    let todos = this.state.todos.map(td => {
+    let todos = this.state.todos.map((td) => {
       if (td.id === id) {
         return updateToDo;
       }
@@ -42,22 +42,26 @@ class App extends React.Component {
     this.setState({ todos });
   };
 
-  deleteToDo = id => {
+  deleteToDo = (id) => {
     let todos = [...this.state.todos];
-    todos = todos.filter(td => td.id !== id);
+    todos = todos.filter((td) => td.id !== id);
     this.setState({ todos });
   };
 
-  updateFilter = newFilter => {
+  updateFilter = (newFilter) => {
     const updatedFilter = newFilter;
     this.setState({ filter: updatedFilter });
   };
 
   render() {
     return (
-      <div className="todo-container">
-        <h1 className="main-heading">Happy Cat To Do List</h1>
-        <p className="sub-heading">Happy cats mean completed todos</p>
+      <div data-testid="App" className="todo-container">
+        <h1 data-testid="App-heading" className="main-heading">
+          Happy Cat To Do List
+        </h1>
+        <p data-testid="App-subheading" className="sub-heading">
+          Happy cats mean completed todos
+        </p>
         <Main
           filter={this.state.filter}
           todos={this.state.todos}

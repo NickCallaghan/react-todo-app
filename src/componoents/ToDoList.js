@@ -34,7 +34,11 @@ class ToDoList extends React.Component {
   };
 
   renderNoToDos = () => {
-    return <div className="no-todos">Nothing to do!</div>;
+    return (
+      <div data-testid="no-todos" className="no-todos">
+        Nothing to do!
+      </div>
+    );
   };
 
   render() {
