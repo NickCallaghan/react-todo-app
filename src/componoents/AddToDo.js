@@ -8,7 +8,6 @@ class AddToDo extends React.Component {
     event.preventDefault();
     // Add a todo if not empty
     if (this.newTodoRef.current.value !== "") {
-      console.log("Submit");
       const newToDo = {
         id: uuid(),
         task: this.newTodoRef.current.value,

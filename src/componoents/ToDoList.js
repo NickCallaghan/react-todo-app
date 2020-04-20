@@ -2,24 +2,24 @@ import React from "react";
 import ToDo from "./ToDo";
 
 class ToDoList extends React.Component {
-  filterTodos = filter => {
+  filterTodos = (filter) => {
     // Get todos
-    let todos = Object.keys(this.props.todos).map(key => {
+    let todos = Object.keys(this.props.todos).map((key) => {
       return { ...this.props.todos[key] };
     });
     if (filter === "completed") {
-      todos = todos.filter(todo => todo.complete === true);
+      todos = todos.filter((todo) => todo.complete === true);
     }
     if (filter === "open") {
-      todos = todos.filter(todo => todo.complete === false);
+      todos = todos.filter((todo) => todo.complete === false);
     }
     return todos;
   };
 
-  renderTodos = todos => {
+  renderTodos = (todos) => {
     return (
-      <div className="todo-list">
-        {todos.map(todo => {
+      <div data-testid="todo-list" className="todo-list">
+        {todos.map((todo) => {
           return (
             <ToDo
               key={todo.id}

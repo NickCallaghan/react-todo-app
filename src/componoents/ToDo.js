@@ -19,7 +19,10 @@ class ToDo extends React.Component {
   render() {
     const { id, task, complete } = this.props.todo;
     return (
-      <div className={`todo-item ${complete ? "checked" : "not-checked"}`}>
+      <div
+        data-testid="todo-item"
+        className={`todo-item ${complete ? "checked" : "not-checked"}`}
+      >
         <input
           data-testid="todo-checkbox"
           type="checkbox"
